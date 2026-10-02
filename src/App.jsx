@@ -1,4 +1,3 @@
-import "./App.css";
 import Home from "./pages/Home";
 
 function App() {
@@ -6,7 +5,6 @@ function App() {
     <>
       <header>HEADER</header>
       <Home></Home>
-      <footer>FOOTER</footer>
     </>
   );
 }
