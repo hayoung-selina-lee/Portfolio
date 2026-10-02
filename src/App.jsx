@@ -1,11 +1,13 @@
 import "./App.css";
-import ScrollHero from "./components/ScrollHero";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div>
-      <ScrollHero></ScrollHero>
-    </div>
+    <>
+      <header>HEADER</header>
+      <Home></Home>
+      <footer>FOOTER</footer>
+    </>
   );
 }
 
