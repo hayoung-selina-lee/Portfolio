@@ -15,6 +15,11 @@ function ScrollHero() {
   const imagesRef = useRef([]);
   const currentFrameRef = useRef(0);
   const drawnFrameRef = useRef(-1);
+
+  const line1Ref = useRef(null);
+  const line2Ref = useRef(null);
+  const line3Ref = useRef(null);
+
   const [loadedCount, setLoadedCount] = useState(0);
 
   const drawFrame = (index) => {
@@ -64,22 +69,33 @@ function ScrollHero() {
     () => {
       const state = { frame: 0 };
 
-      gsap.to(state, {
-        frame: FRAME_COUNT - 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-          //markers: true,
-        },
-        onUpdate: () => {
-          const index = Math.round(state.frame);
-          currentFrameRef.current = index;
-          drawFrame(index);
-        },
+      const t1 = gsap.timeline({
+        scrollTrigger: { trigger: containerRef.current, start: "top top", end: "bottom bottom", scrub: 1 },
       });
+
+      t1.to(
+        state,
+        {
+          frame: FRAME_COUNT - 1,
+          duration: 1,
+          ease: "none",
+          onUpdate: () => {
+            const index = Math.round(state.frame);
+            currentFrameRef.current = index;
+            drawFrame(index);
+          },
+        },
+        0,
+      );
+
+      t1.to(line1Ref.current, { opacity: 1, duration: 0.05 }, 0.0);
+      t1.to(line1Ref.current, { opacity: 0, duration: 0.05 }, 0.2);
+
+      t1.to(line2Ref.current, { opacity: 1, duration: 0.05 }, 0.25);
+      t1.to(line2Ref.current, { opacity: 0, duration: 0.05 }, 0.5);
+
+      t1.to(line3Ref.current, { opacity: 1, duration: 0.05 }, 0.55);
+      t1.to(line3Ref.current, { opacity: 0, duration: 0.05 }, 0.85);
     },
     { scope: containerRef },
   );
@@ -105,6 +121,15 @@ function ScrollHero() {
             objectFit: "cover",
           }}
         ></canvas>
+        <p ref={line1Ref} className="absolute opacity-0 bottom-15 left-16 text-6xl text-white">
+          Hi, I'm Hayoung Selina Lee.
+        </p>
+        <p ref={line2Ref} className="absolute opacity-0 bottom-15 left-16 text-6xl text-white">
+          4+ years as a Software Engineer.
+        </p>
+        <p ref={line3Ref} className="absolute opacity-0 bottom-15 left-16 text-6xl text-white">
+          From Android apps to the hardware beneath.
+        </p>
         <div
           style={{
             position: "absolute",
