@@ -2,8 +2,9 @@ import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { TextPlugin } from "gsap/TextPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 const FRAME_COUNT = 198;
 
@@ -88,14 +89,14 @@ function ScrollHero() {
         0,
       );
 
-      t1.to(line1Ref.current, { opacity: 1, duration: 0.05 }, 0.0);
-      t1.to(line1Ref.current, { opacity: 0, duration: 0.05 }, 0.2);
+      t1.to(line1Ref.current, { text: "Hi, I'm Hayoung Selina Lee.", ease: "none", opacity: 1, duration: 0.25 }, 0.0);
+      t1.to(line1Ref.current, { opacity: 0, duration: 0.0 }, 0.3);
 
-      t1.to(line2Ref.current, { opacity: 1, duration: 0.05 }, 0.25);
-      t1.to(line2Ref.current, { opacity: 0, duration: 0.05 }, 0.5);
+      t1.to(line2Ref.current, { text: "4+ years as a Software Engineer.", ease: "none", opacity: 1, duration: 0.25 }, 0.31);
+      t1.to(line2Ref.current, { opacity: 0, duration: 0.0 }, 0.61);
 
-      t1.to(line3Ref.current, { opacity: 1, duration: 0.05 }, 0.55);
-      t1.to(line3Ref.current, { opacity: 0, duration: 0.05 }, 0.85);
+      t1.to(line3Ref.current, { text: "Let's get to know each other.", ease: "none", opacity: 1, duration: 0.25 }, 0.62);
+      t1.to(line3Ref.current, { opacity: 0, duration: 0.0 }, 0.92);
     },
     { scope: containerRef },
   );
@@ -121,14 +122,12 @@ function ScrollHero() {
             objectFit: "cover",
           }}
         ></canvas>
-        <p ref={line1Ref} className="absolute opacity-0 bottom-15 left-16 text-6xl text-white">
-          Hi, I'm Hayoung Selina Lee.
-        </p>
-        <p ref={line2Ref} className="absolute opacity-0 bottom-15 left-16 text-6xl text-white">
-          4+ years as a Software Engineer.
-        </p>
-        <p ref={line3Ref} className="absolute opacity-0 bottom-15 left-16 text-6xl text-white">
-          From Android apps to the hardware beneath.
+        <p ref={line1Ref} className="absolute opacity-0 bottom-25 left-10 text-6xl text-white"></p>
+        <p ref={line2Ref} className="absolute opacity-0 bottom-25 left-10 text-6xl text-white"></p>
+        <p ref={line3Ref} className="absolute opacity-0 bottom-25 left-10 text-6xl text-white"></p>
+        <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-white/60">
+          Scroll down to learn more
+          <span className="ml-1 inline-block rotate-90"> »</span>
         </p>
         <div
           style={{
