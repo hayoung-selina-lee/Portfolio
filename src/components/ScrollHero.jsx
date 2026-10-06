@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FRAME_COUNT = 209;
+const FRAME_COUNT = 198;
 
 const framePath = (index) => `/frames/f_${String(index).padStart(4, "0")}.webp`;
 
