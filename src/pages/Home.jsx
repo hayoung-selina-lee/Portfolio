@@ -1,13 +1,28 @@
 import ScrollHero from "../components/ScrollHero";
+import TerminalWindow from "../components/TerminalWindow";
 
 function Home() {
   return (
     <main className="bg-black">
       <ScrollHero />
-      <header>HEADER</header>
-      <section className="p-8 text-2xl text-red-500">SKILL</section>
-      <section className="p-100 text-white">PROJECTS</section>
-      <section className="p-100 text-white">CONTACT</section>
+      <div className="pt-10 flex flex-col gap-10">
+        <header className="sticky top-0 z-50 bg-black text-white">HEADER</header>
+        <section>
+          <TerminalWindow title="skills">
+            <div className="p-100 text-white">SKILL</div>
+          </TerminalWindow>
+        </section>
+        <section>
+          <TerminalWindow title="projects">
+            <div className="p-100 text-white">PROJECTS</div>
+          </TerminalWindow>
+        </section>
+        <section>
+          <TerminalWindow title="contact">
+            <div className="p-100 text-white">CONTACT</div>
+          </TerminalWindow>
+        </section>
+      </div>
     </main>
   );
 }
