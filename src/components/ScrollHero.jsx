@@ -122,9 +122,9 @@ function ScrollHero() {
             objectFit: "cover",
           }}
         ></canvas>
-        <p ref={line1Ref} className="absolute opacity-0 bottom-25 left-10 text-6xl text-white"></p>
-        <p ref={line2Ref} className="absolute opacity-0 bottom-25 left-10 text-6xl text-white"></p>
-        <p ref={line3Ref} className="absolute opacity-0 bottom-25 left-10 text-6xl text-white"></p>
+        <p ref={line1Ref} className="font-mono absolute opacity-0 bottom-25 left-10 text-5xl font-bold text-white"></p>
+        <p ref={line2Ref} className="font-mono absolute opacity-0 bottom-25 left-10 text-5xl font-bold text-white"></p>
+        <p ref={line3Ref} className="font-mono absolute opacity-0 bottom-25 left-10 text-5xl font-bold text-white"></p>
         <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-white/60">
           Scroll down to learn more
           <span className="ml-1 inline-block rotate-90"> »</span>
