@@ -1,5 +1,6 @@
 import ScrollHero from "../components/ScrollHero";
 import TerminalWindow from "../components/TerminalWindow";
+import SkillsMarquee from "../components/SkillsMarquee";
 
 function Home() {
   return (
@@ -9,7 +10,7 @@ function Home() {
         <header className="sticky top-0 z-50 bg-black text-white">HEADER</header>
         <section>
           <TerminalWindow title="skills">
-            <div className="p-100 text-white">SKILL</div>
+            <SkillsMarquee />
           </TerminalWindow>
         </section>
         <section>
