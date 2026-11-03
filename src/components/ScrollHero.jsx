@@ -102,26 +102,9 @@ function ScrollHero() {
   );
 
   return (
-    <div ref={containerRef} style={{ height: "500vh", background: "#000" }}>
-      <div
-        style={{
-          position: "sticky",
-          top: 0,
-          height: "100vh",
-          overflow: "hidden",
-        }}
-      >
-        <canvas
-          ref={canvasRef}
-          width={1920}
-          height={1080}
-          style={{
-            display: "block",
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        ></canvas>
+    <div ref={containerRef} className="h-[500vh] bg-black">
+      <div className="sticky top-0 h-screen overflow-hidden">
+        <canvas ref={canvasRef} width={1920} height={1080} className="block h-full w-full object-cover"></canvas>
         <p ref={line1Ref} className="font-mono absolute opacity-0 bottom-25 left-10 text-5xl font-bold text-white"></p>
         <p ref={line2Ref} className="font-mono absolute opacity-0 bottom-25 left-10 text-5xl font-bold text-white"></p>
         <p ref={line3Ref} className="font-mono absolute opacity-0 bottom-25 left-10 text-5xl font-bold text-white"></p>
@@ -130,26 +113,12 @@ function ScrollHero() {
           <span className="ml-1 inline-block rotate-90"> »</span>
         </p>
         <div
-          style={{
-            position: "absolute",
-            display: "flex",
-            inset: 0,
-            alignItems: "center",
-            justifyContent: "center",
-            margin: 0,
-            opacity: loadedCount === FRAME_COUNT ? 0 : 1,
-            transition: "opacity 0.5s",
-            pointerEvents: loadedCount === FRAME_COUNT ? "none" : "auto",
-          }}
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
+            loadedCount === FRAME_COUNT ? "pointer-events-none opacity-0" : "opacity-100"
+          }`}
         >
-          <div style={{ width: 240, height: 4, background: "#333" }}>
-            <div
-              style={{
-                width: `${(loadedCount / FRAME_COUNT) * 100}%`,
-                height: "100%",
-                background: "#fff",
-              }}
-            />
+          <div className="h-1 w-60 bg-[#333]">
+            <div className="h-full bg-white" style={{ width: `${(loadedCount / FRAME_COUNT) * 100}%` }} />
           </div>
         </div>
       </div>
