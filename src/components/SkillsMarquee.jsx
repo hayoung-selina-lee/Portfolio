@@ -12,15 +12,15 @@ function SkillsMarquee() {
   });
 
   return (
-    <div className="px-5">
+    <div className="px-10">
       {skills.map((group, categoryIndex) => (
         <div
           onMouseEnter={() => gsap.to(tweensRef.current[categoryIndex], { timeScale: 0 })}
           onMouseLeave={() => gsap.to(tweensRef.current[categoryIndex], { timeScale: 1 })}
-          className="flex items-center py-2"
+          className="flex items-center py-3"
           key={group.category}
         >
-          <span className="w-37 shrink-0 text-white/60">{group.category}</span>
+          <span className="w-40 shrink-0 text-white/60">{group.category}</span>
           <div className="flex-1 overflow-hidden">
             <div className="skills flex w-max">
               {Array.from({ length: 5 }, (_, index) => index).map((copy) => (

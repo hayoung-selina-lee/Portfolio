@@ -1,6 +1,6 @@
 function TerminalWindow(props) {
   return (
-    <div className="mx-2 rounded-lg border-2 border-white/20 overflow-hidden">
+    <div className="h-[80vh] mx-2 rounded-lg border-2 border-white/20 overflow-hidden">
       <div className="flex gap-2 p-3 bg-white/10 items-center">
         <div className="h-3 w-3 rounded-full bg-red-500" />
         <div className="h-3 w-3 rounded-full bg-yellow-500" />
